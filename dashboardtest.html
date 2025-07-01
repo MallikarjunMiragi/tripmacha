@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+  
+<script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <style>
+      canvas {
+        position: absolute;
+        bottom: 0;
+        left: -400px;
+        height: 90vh;
+        z-index: 1;
+        background: transparent;
+        pointer-events: all;
+      }
+    body {
+      font-family: 'Syne', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: url('bg.png') no-repeat center center;
+      background-size: cover;
+    }
+
+    h1 {
+      font-size: 56px;
+      color: #fff;
+      
+      padding: 20px 40px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="greeting">Hello!</h1>
+
+  <script>
+    const username = localStorage.getItem("username") || sessionStorage.getItem("username");
+    if (username) {
+      document.getElementById("greeting").innerText = "Hello, " + username + "!";
+      setTimeout(() => {
+        window.location.href = "maindashboard.html";
+      }, 6000); // 6 seconds
+    } else {
+      window.location.href = "login.html";
+    }
+    const canvas = document.createElement('canvas');
+      document.body.appendChild(canvas);
+
+      // Create engine
+      const engine = new BABYLON.Engine(canvas, true, {
+        preserveDrawingBuffer: true,
+        stencil: true,
+        disableWebGL2Support: false,
+      });
+
+      // Create scene
+      const createScene = async () => {
+        const scene = new BABYLON.Scene(engine);
+        scene.clearColor = new BABYLON.Color4(0, 0, 0, 0); // Transparent BG
+
+        const camera = new BABYLON.ArcRotateCamera(
+          'camera',
+          Math.PI / 2,
+          Math.PI / 2,
+          3,
+          new BABYLON.Vector3(0, 1, 0),
+          scene
+        );
+        camera.attachControl(canvas, true);
+        camera.lowerBetaLimit = Math.PI / 2; // Prevent up/down rotation
+        camera.upperBetaLimit = Math.PI / 2;
+        camera.wheelDeltaPercentage = 0.01;
+
+        const light = new BABYLON.HemisphericLight(
+          'light',
+          new BABYLON.Vector3(1, 1, 0),
+          scene
+        );
+
+        // Load character
+        await BABYLON.SceneLoader.ImportMeshAsync(
+          '',
+          'model/',
+          'groove.glb',
+          scene
+        );
+
+        return scene;
+      };
+
+      createScene().then(scene => {
+        engine.runRenderLoop(() => {
+          scene.render();
+        });
+
+        window.addEventListener('resize', () => {
+          engine.resize();
+        });
+      });
+  </script>
+</body>
+</html>

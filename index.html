@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Trip Macha - 3D Character</title>
+    <link rel="stylesheet" href="style2.css" />
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <style>
+      canvas {
+        position: absolute;
+        bottom: 0;
+        left: 50px;
+        height: 90vh;
+        z-index: 1;
+        background: transparent;
+        pointer-events: all;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-hero">
+      <!-- Logo -->
+      <img
+        src="logo.png"
+        alt="Trip Macha Logo"
+        class="logo"
+      />
+      
+      
+
+      <!-- Right Text Box -->
+      <div class="hero-box">
+        <h1 class="greeting">Hello</h1>
+        <p class="hero-text">
+          Hello! I'm your<br />
+          smart travel<br />
+          companion<br />
+          powered by<br />
+          AI.
+        </p>
+        <div class="hero-buttons">
+          <a href="Signup.html" class="btn orange">GET STARTED</a>
+          <a href="Signin.html" class="btn black">LOG IN</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Get canvas
+      const canvas = document.createElement('canvas');
+      document.body.appendChild(canvas);
+
+      // Create engine
+      const engine = new BABYLON.Engine(canvas, true, {
+        preserveDrawingBuffer: true,
+        stencil: true,
+        disableWebGL2Support: false,
+      });
+
+      // Create scene
+      const createScene = async () => {
+        const scene = new BABYLON.Scene(engine);
+        scene.clearColor = new BABYLON.Color4(0, 0, 0, 0); // Transparent BG
+
+        const camera = new BABYLON.ArcRotateCamera(
+          'camera',
+          Math.PI / 2,
+          Math.PI / 2,
+          3,
+          new BABYLON.Vector3(0, 1, 0),
+          scene
+        );
+        camera.attachControl(canvas, true);
+        camera.lowerBetaLimit = Math.PI / 2; // Prevent up/down rotation
+        camera.upperBetaLimit = Math.PI / 2;
+        camera.wheelDeltaPercentage = 0.01;
+
+        const light = new BABYLON.HemisphericLight(
+          'light',
+          new BABYLON.Vector3(1, 1, 0),
+          scene
+        );
+
+        // Load character
+        await BABYLON.SceneLoader.ImportMeshAsync(
+          '',
+          'model/',
+          'walk.glb',
+          scene
+        );
+
+        return scene;
+      };
+
+      createScene().then(scene => {
+        engine.runRenderLoop(() => {
+          scene.render();
+        });
+
+        window.addEventListener('resize', () => {
+          engine.resize();
+        });
+      });
+    </script>
+  </body>
+</html>

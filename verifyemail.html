@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trip Macha - Verify Email</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    .loader-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .loader {
+      width: 50px;
+      height: 50px;
+      border: 6px solid #ccc;
+      border-top-color: #222;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <img src="logo.png" alt="Trip Macha Logo" class="logo"/>
+
+  <div class="main-container">
+    <div class="card">
+      <div class="left-section">
+        <p class="tagline">Lost the way?<br> Macha will guide you back!</p>
+        <img src="guy_on_scooter.png" alt="Guy on Scooter" class="scooter" />
+      </div>
+
+      <div class="right-section">
+        <h1 class="title">Verify Email</h1>
+        <form class="form" id="reset-form">
+          <input type="email" placeholder="Enter your Email" required />
+          <button type="submit">Get the Verification Link</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="loader-overlay" class="loader-overlay" style="display: none;">
+    <div class="loader"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('reset-form');
+    const loader = document.getElementById('loader-overlay');
+    let pollingInterval = null;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        window.location.href = "Signin.html";
+        return;
+      }
+
+      loader.style.display = 'flex'; // Show loader immediately
+
+      try {
+        const response = await fetch("https://new-tm.onrender.com/send-verification-email", {
+          method: "GET",
+          headers: {
+            "Accept": "application/json",
+            "Authorization": `Bearer ${token}`
+          }
+        });
+
+        if (response.ok) {
+          startVerificationPoll();
+        } else {
+          loader.style.display = 'none'; // Hide loader if something fails
+        }
+      } catch (error) {
+        loader.style.display = 'none'; // Hide loader on network error
+      }
+    });
+
+    function startVerificationPoll() {
+      if (pollingInterval) return; // Prevent multiple polling intervals
+
+      pollingInterval = setInterval(async () => {
+        const token = sessionStorage.getItem("token");
+        if (!token) return; // Stay on same page silently if token is gone
+
+        try {
+          const response = await fetch("https://new-tm.onrender.com/users/me", {
+            method: "GET",
+            headers: {
+              "Authorization": `Bearer ${token}`,
+              "Accept": "application/json"
+            }
+          });
+
+          if (response.ok) {
+            const result = await response.json();
+            if (result.email_verified === true) {
+              clearInterval(pollingInterval);
+              loader.style.display = 'none';
+              window.location.href = "dashboard.html";
+            }
+          }
+          // Do nothing if not verified yet or response not ok (stay on page)
+        } catch (error) {
+          // Network error: do nothing, stay on page and keep checking
+        }
+      }, 3000); // Poll every 3 seconds
+    }
+  </script>
+</body>
+</html>

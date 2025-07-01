@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Syne', sans-serif;
+  background-image: url('bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Logo */
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 225px;
+  height: 150px;
+  z-index: 5;
+}
+
+/* Main Container */
+.main-hero {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+}
+
+/* Hero Box (right text and buttons) */
+.hero-box {
+  position: absolute;
+  right: 200px;
+  top: 50%;
+  width: 500px;
+  max-width: 100%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 40px 50px;
+  z-index: 3;
+  color: #000;
+}
+
+.greeting {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero-text {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  display: inline-block;
+}
+
+.btn.orange {
+  background-color: #ff8800;
+  color: white;
+}
+
+.btn.black {
+  background-color: black;
+  color: white;
+}
+
+/* 3D Canvas */
+canvas {
+  position: absolute;
+  bottom: 100px;
+  left: -2  00px; /* Shift entire 3D scene to the left */
+  height: 90vh;
+  z-index: 1;
+  background: transparent;
+  pointer-events: all;
+}
+
+canvas:focus {
+  outline: none;
+}
+
+/* ========== MOBILE RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+  .main-container,
+  .main-hero {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: auto;
+  }
+
+  .hero-box {
+    position: static;
+    width: 100%;
+    max-width: 100px;
+    margin-top: 20px;
+    padding: 30px 20px;
+    backdrop-filter: blur(10px);
+  }
+
+  .hero-text {
+    font-size: 24px;
+    line-height: 1.4;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .logo {
+    width: 120px;
+    top: 10px;
+    left: 10px;
+  }
+}
