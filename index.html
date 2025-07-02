@@ -6,28 +6,12 @@
     <link rel="stylesheet" href="style2.css" />
     <script src="https://cdn.babylonjs.com/babylon.js"></script>
     <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
-    <style>
-      canvas {
-        position: absolute;
-        bottom: 0;
-        left: 50px;
-        height: 90vh;
-        z-index: 1;
-        background: transparent;
-        pointer-events: all;
-      }
-    </style>
+    <style></style>
   </head>
   <body>
     <div class="main-hero">
       <!-- Logo -->
-      <img
-        src="logo.png"
-        alt="Trip Macha Logo"
-        class="logo"
-      />
-      
-      
+      <img src="logo.png" alt="Trip Macha Logo" class="logo" />
 
       <!-- Right Text Box -->
       <div class="hero-box">
@@ -48,7 +32,7 @@
 
     <script>
       // Get canvas
-      const canvas = document.createElement('canvas');
+      const canvas = document.createElement("canvas");
       document.body.appendChild(canvas);
 
       // Create engine
@@ -64,41 +48,42 @@
         scene.clearColor = new BABYLON.Color4(0, 0, 0, 0); // Transparent BG
 
         const camera = new BABYLON.ArcRotateCamera(
-          'camera',
+          "camera",
           Math.PI / 2,
           Math.PI / 2,
-          3,
+          2.8,
           new BABYLON.Vector3(0, 1, 0),
           scene
         );
+        camera.fovMode = BABYLON.Camera.FOVMODE_VERTICAL_FIXED; // keeps size stable
         camera.attachControl(canvas, true);
         camera.lowerBetaLimit = Math.PI / 2; // Prevent up/down rotation
         camera.upperBetaLimit = Math.PI / 2;
         camera.wheelDeltaPercentage = 0.01;
 
         const light = new BABYLON.HemisphericLight(
-          'light',
+          "light",
           new BABYLON.Vector3(1, 1, 0),
           scene
         );
 
         // Load character
         await BABYLON.SceneLoader.ImportMeshAsync(
-          '',
-          'model/',
-          'walk.glb',
+          "",
+          "model/",
+          "walk.glb",
           scene
         );
 
         return scene;
       };
 
-      createScene().then(scene => {
+      createScene().then((scene) => {
         engine.runRenderLoop(() => {
           scene.render();
         });
 
-        window.addEventListener('resize', () => {
+        window.addEventListener("resize", () => {
           engine.resize();
         });
       });
