@@ -5,8 +5,8 @@
 }
 
 body {
-  font-family: "Syne", sans-serif;
-  background-image: url("bg.png");
+  font-family: 'Syne', sans-serif;
+  background-image: url('bg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -95,15 +95,11 @@ body {
 canvas {
   position: absolute;
   bottom: 100px;
-  left: -300px; /* Adjusted to fit the design */
-  top: 100px; /* Adjusted to fit the design */
-  right: 0;
-  margin: 0 auto;
-  height: 80vh; /* or your preferred */
-  width: 550px; /* optional, control page layout */
-  display: block;
-  border: 2px solid #fff;
-  width-left: 200px;
+  left: -2  00px; /* Shift entire 3D scene to the left */
+  height: 90vh;
+  z-index: 1;
+  background: transparent;
+  pointer-events: all;
 }
 
 canvas:focus {
