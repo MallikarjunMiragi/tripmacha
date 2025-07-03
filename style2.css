@@ -41,33 +41,39 @@ body {
   position: absolute;
   right: 200px;
   top: 50%;
-  width: 500px;
+  width: 650px;
   max-width: 100%;
   transform: translateY(-50%);
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(15px);
-  border-radius: 20px;
+  border-radius: 100px;
   padding: 40px 50px;
   z-index: 3;
   color: #000;
+  height: 500px;
+  border
 }
 
 .greeting {
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 20px;
+  padding-left: 100px;
 }
 
 .hero-text {
-  font-size: 32px;
+  font-size: 45px;
   font-weight: 600;
   line-height: 1.4;
   margin-bottom: 30px;
+  padding-left: 100px;
+  
 }
 
 .hero-buttons {
   display: flex;
   gap: 15px;
+  padding-left: 100px;
 }
 
 .btn {
@@ -76,14 +82,16 @@ body {
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 18px;
   text-align: center;
   display: inline-block;
+  margin-left: 75px;
 }
 
 .btn.orange {
   background-color: #ff8800;
   color: white;
+  margin-left: 0px;
 }
 
 .btn.black {
@@ -100,7 +108,7 @@ canvas {
   z-index: 1;
   background: transparent;
   pointer-events: all;
-  border: 2px solid rgb(0, 0, 0);
+  
 }
 
 canvas:focus {
