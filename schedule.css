@@ -1,0 +1,277 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Syne', sans-serif;
+  background-image: url('bg.png');
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  align-items: center;
+}
+
+.logo {
+  height: 150px;
+  width: 225px;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+/* Fixes white background issue */
+}
+
+.base-img,
+.overlay-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Faded background image */
+.base-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  z-index: 1;
+  filter: blur(1px) brightness(0.9);
+  transition: all 0.3s ease;
+}
+
+/* Full-opacity overlay image */
+.overlay-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+  transition: all 0.3s ease;
+}
+
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  background-color: orange;
+  border-radius: 50%;
+}
+
+/* Main Section */
+.trip-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
+  background: transparent;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.character-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 70%;
+}
+
+.character-img {
+  width: 100%;
+  max-width: 400px;
+
+  border-radius: 40px;
+  opacity: 70%;
+}
+
+.form-section {
+  flex: 2;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-heading {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 40px;
+}
+
+.trip-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-row input {
+  flex: 1;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.locate-btn {
+  padding: 16px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 14px;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.locate-btn:hover {
+  background-color: #86d2cd;
+  color: white;
+}
+
+
+/* Floating Button */
+.floating-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Profile Icon Image (top-right corner) */
+.profile-image {
+  height: 70px;
+  width: 100px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  z-index: 1000;
+  pointer-events: all;
+}
+
+/* Overlay with blur effect */
+.popup {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Hide the popup initially */
+.hidden {
+  display: none;
+}
+
+/* Profile Card Design */
+.profile-card {
+  background: linear-gradient(to bottom right, #ffffff, #f8f8f8);
+  border-radius: 20px;
+  padding: 30px 25px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  position: relative; 
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Profile Picture Container */
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Name and Contact Info */
+.profile-card h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.profile-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Reset Password Button */
+.reset-btn {
+  padding: 12px 24px;
+  background-color: #d76834;
+  color: #ffffff;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: not-allowed;
+  transition: background-color 0.3s ease;
+}
+
+.reset-btn:hover {
+  background-color: #51e7d3;
+}
+
+.logout-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
