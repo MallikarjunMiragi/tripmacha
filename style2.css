@@ -100,7 +100,6 @@ canvas {
   z-index: 1;
   background: transparent;
   pointer-events: all;
-  border: 2px solid rgb(0, 0, 0);
 }
 
 canvas:focus {
