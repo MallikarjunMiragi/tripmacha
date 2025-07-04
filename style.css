@@ -30,7 +30,8 @@ body {
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   background-color: white;
-  height: 600px;
+  height: 700px;
+  width: 1000px;
 }
 
 /* Left Side */
@@ -61,18 +62,19 @@ body {
 
 .scooter {
   position: absolute;
+  padding-left: 0px;
   bottom: 10px;
-  left: -250px;
-  width: 320px;
+  left: -200px;
   animation: scooterSlide 2s forwards ease;
   animation-delay: 0s;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
+  z-index: 3;
 }
 
 @keyframes scooterSlide {
   to {
-    left: 35px;
+    left: -10px; /* Adjust this value to control the final position */
   }
 }
 
