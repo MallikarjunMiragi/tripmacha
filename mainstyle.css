@@ -68,8 +68,8 @@ header {
   display: none;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid #1e1e1e;
-  animation: typing 2s steps(30, end) forwards,
+  border-right: 3px solid #1e1e1e00;
+  animation: typing 2s steps(30, end) forwards;
              
 }
 
@@ -90,7 +90,7 @@ header {
 }
 
 .text-break .line2 {
-  animation-delay: 2.6s;
+  animation-delay: 1.4s;
 }
 
 .text-break .line3 {
@@ -105,7 +105,7 @@ header {
   animation:
     typing 2s steps(30, end) forwards;
     
-  animation-delay: 4.6s;
+  animation-delay: 3.0s;
 }
 
 
