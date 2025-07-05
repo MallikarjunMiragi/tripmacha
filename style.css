@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: "Comic Sans MS", cursive, sans-serif;
   background-color: #ffffff;
   display: flex;
   justify-content: center;
@@ -22,22 +22,22 @@ body {
   max-height: 1000px;
   padding: 40px;
   padding-top: 150px;
-
 }
 
 .card {
   display: flex;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   background-color: white;
-  height: 600px;
+  height: 700px;
+  width: 1000px;
 }
 
 /* Left Side */
 .left-section {
   width: 40%;
-  background: linear-gradient(to bottom, #B4EBE6, #ffffff);
+  background: linear-gradient(to bottom, #b4ebe6, #ffffff);
   padding: 30px;
   position: relative;
 }
@@ -52,7 +52,7 @@ body {
 }
 
 .tagline {
-  font-family: 'Syne', sans-serif;
+  font-family: "Syne", sans-serif;
   font-size: 28px;
   font-weight: 700;
   color: #222;
@@ -60,21 +60,21 @@ body {
   text-align: left;
 }
 
-
 .scooter {
   position: absolute;
+  padding-left: 0px;
   bottom: 10px;
-  left: -250px;
-  width: 320px;
+  left: -200px;
   animation: scooterSlide 2s forwards ease;
   animation-delay: 0s;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
+  z-index: 3;
 }
 
 @keyframes scooterSlide {
   to {
-    left: 35px;
+    left: -10px; /* Adjust this value to control the final position */
   }
 }
 
@@ -90,7 +90,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: url('form_bg.png') no-repeat center center;
+  background: url("form_bg.png") no-repeat center center;
   background-size: cover;
   opacity: 0.3; /* Adjust opacity here */
   z-index: 0;
@@ -100,7 +100,6 @@ body {
   position: relative;
   z-index: 1;
 }
-
 
 .title {
   font-size: 32px;
@@ -143,9 +142,7 @@ body {
   gap: 20px;
   opacity: 60%;
   padding: 5px;
-
 }
-
 
 input {
   padding: 10px;
@@ -190,11 +187,8 @@ button {
   }
 }
 
-
-
 /* ========== MOBILE RESPONSIVE DESIGN ========== */
 @media (max-width: 768px) {
-
   .main-container,
   .main-hero {
     flex-direction: column;

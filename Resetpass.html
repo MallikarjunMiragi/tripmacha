@@ -1,35 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Trip Macha - Reset Password</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <img src="Logo.png" alt="Trip Macha Logo" class="logo"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trip Macha - Reset Password</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <img src="Logo.png" alt="Trip Macha Logo" class="logo" />
 
-  <div class="main-container">
-    <div class="card">
+    <div class="main-container">
+      <div class="card">
+        <!-- Left Side with Tagline & Scooter -->
+        <div class="left-section">
+          <p class="tagline">
+            Lost the way?<br />
+            Macha will guide you back!
+          </p>
+          <img src="guy_on_scooter.png" alt="Guy on Scooter" class="scooter" />
+        </div>
 
-      <!-- Left Side with Tagline & Scooter -->
-      <div class="left-section">
-        <p class="tagline">Lost the way?<br> Macha will guide you back!</p>
-        <img src="ChatGPT Image Jun 17, 2025, 10_12_22 AM-Photoroom.png" alt="Guy on Scooter" class="scooter" />
+        <!-- Right Side with Reset Password Form -->
+        <div class="right-section">
+          <h1 class="title">Reset Password</h1>
+          <form class="form">
+            <input
+              type="email"
+              placeholder="Enter your registered email ID"
+              required
+            />
+            <button type="submit">Send Reset Link</button>
+            <p class="login">
+              Remember your password? <a href="Signin.html">Login</a>
+            </p>
+          </form>
+        </div>
       </div>
-
-      <!-- Right Side with Reset Password Form -->
-      <div class="right-section">
-        <h1 class="title">Reset Password</h1>
-        <form class="form">
-          <input type="email" placeholder="Enter your registered email ID" required />
-          <button type="submit">Send Reset Link</button>
-          <p class="login">Remember your password? <a href="Signin.html">Login</a></p>
-        </form>
-      </div>
-
     </div>
-  </div>
-</body>
+  </body>
 </html>

@@ -5,8 +5,8 @@
 }
 
 body {
-  font-family: 'Syne', sans-serif;
-  background-image: url('bg.png');
+  font-family: "Syne", sans-serif;
+  background-image: url("bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -41,33 +41,37 @@ body {
   position: absolute;
   right: 200px;
   top: 50%;
-  width: 500px;
+  width: 650px;
   max-width: 100%;
   transform: translateY(-50%);
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(15px);
-  border-radius: 20px;
+  border-radius: 100px;
   padding: 40px 50px;
   z-index: 3;
   color: #000;
+  height: 500px;
 }
 
 .greeting {
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 20px;
+  padding-left: 100px;
 }
 
 .hero-text {
-  font-size: 32px;
+  font-size: 45px;
   font-weight: 600;
   line-height: 1.4;
   margin-bottom: 30px;
+  padding-left: 100px;
 }
 
 .hero-buttons {
   display: flex;
   gap: 15px;
+  padding-left: 100px;
 }
 
 .btn {
@@ -76,14 +80,16 @@ body {
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 18px;
   text-align: center;
   display: inline-block;
+  margin-left: 75px;
 }
 
 .btn.orange {
   background-color: #ff8800;
   color: white;
+  margin-left: 0px;
 }
 
 .btn.black {
@@ -95,7 +101,7 @@ body {
 canvas {
   position: absolute;
   bottom: 100px;
-  left: -2  00px; /* Shift entire 3D scene to the left */
+  left: -400px; /* Shift entire 3D scene to the left */
   height: 90vh;
   z-index: 1;
   background: transparent;
