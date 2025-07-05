@@ -11,12 +11,20 @@
 <body>
 
   <header>
-    <img src="logo.png" alt="Trip Macha Logo" class="logo">
+    <img src="Logo.png" alt="Trip Macha Logo" class="logo">
     <img src="Profile.png" alt="Profile" id="profileBtn" class="profile-image">
   </header>
 
   <main class="main-section" >
-    <h1 class="headline" id="headline">Hi Macha, Ready for your Next Plan?</h1>
+    <h1 class="headline">
+  <span class="text-full">Hi Macha, Ready for your Next Plan?</span>
+  <span class="text-break">
+    <span class="line1">Hi Macha,</span><br>
+    <span class="line2">Ready for your</span><br>
+    <span class="line3">Next Plan?</span>
+  </span>
+</h1>
+
 
 
     <div class="search-wrapper">
@@ -174,19 +182,7 @@
     sessionStorage.setItem("initialMessage", message);
     window.location.href = "chat.html";
   });
-  function updateHeadline() {
-    const headline = document.getElementById("headline");
-    if (window.innerWidth <= 500) {
-      headline.innerHTML = `Hi Macha,<br>Ready for your<br>Next plan?`;
-      headline.style.textAlign = "left";
-    } else {
-      headline.textContent = "Hi Macha, Ready for your Next Plan?";
-      headline.style.textAlign = "center"; // Adjust if you use a different default
-    }
-  }
-
-  window.addEventListener("DOMContentLoaded", updateHeadline);
-  window.addEventListener("resize", updateHeadline);
+  
 </script>
 
 
