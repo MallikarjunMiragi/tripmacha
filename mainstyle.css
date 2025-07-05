@@ -5,8 +5,8 @@
 }
 
 body {
-  font-family: "Syne", sans-serif;
-  background-image: url("bg.png"); /* replace with your image filename */
+  font-family: 'Syne', sans-serif;
+  background-image: url('bg.png'); /* replace with your image filename */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -26,6 +26,7 @@ header {
 .logo {
   height: 150px;
   width: 225px;
+
 }
 
 .profile-icon {
@@ -34,6 +35,7 @@ header {
   background-color: orange;
   border-radius: 50%;
 }
+
 
 .main-section {
   display: flex;
@@ -57,11 +59,13 @@ header {
   overflow: hidden;
   border-right: 3px solid #1e1e1e; /* cursor effect */
   width: 0;
-  animation: typing 2s steps(30, end) forwards,
+  animation: 
+    typing 2s steps(30, end) forwards,
     blinkCursor 0.7s step-end infinite;
   animation-delay: 0.5s; /* after car stops */
   left: -150px;
 }
+
 
 .advanced-btn {
   margin-top: 30px;
@@ -77,6 +81,9 @@ header {
   animation-delay: 1.5s;
   opacity: 0;
 }
+
+
+
 
 .search-wrapper {
   position: relative;
@@ -95,6 +102,8 @@ header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+
+
 .car-placeholder {
   position: absolute;
   top: -150px;
@@ -112,7 +121,7 @@ header {
   right: 60px;
   top: 50%;
   transform: translateY(-50%);
-  height: 24px;
+  height: 48px;
   animation: fadeIn 1.5s ease forwards;
   animation-delay: 1.4s;
 }
@@ -125,7 +134,11 @@ header {
   height: 28px;
   animation: fadeIn 1.5s ease forwards;
   animation-delay: 2s;
+ 
 }
+
+
+
 
 body {
   margin: 0;
@@ -141,7 +154,7 @@ body {
   font-size: 16px;
   border: none;
   border-radius: 10px;
-  background-color: #007bff;
+  background-color: #007BFF;
   color: white;
   cursor: pointer;
   z-index: 10;
@@ -173,6 +186,8 @@ body {
   pointer-events: all; /* ✅ Ensure it's clickable */
 }
 
+
+
 .profile-image {
   height: 70px;
   width: 100px;
@@ -183,6 +198,8 @@ body {
   pointer-events: all; /* ✅ Ensure it's clickable */
 }
 
+
+
 .profile-card {
   background: linear-gradient(to bottom right, #ffffff, #f8f8f8);
   border-radius: 20px;
@@ -192,7 +209,7 @@ body {
   height: 65%;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
-  position: relative;
+  position: relative; 
 }
 
 .profile-card:hover {
@@ -228,6 +245,7 @@ body {
   color: #666;
   margin-bottom: 20px;
   line-height: 1.5;
+   
 }
 
 .reset-btn {
@@ -238,7 +256,7 @@ body {
   border: none;
   border-radius: 100px;
   cursor: not-allowed;
-
+  
   transition: background-color 0.3s ease;
   margin-bottom: 10px;
 }
@@ -246,6 +264,7 @@ body {
 .reset-btn:hover {
   background-color: #51e7d3;
 }
+
 
 /* Animations */
 @keyframes fadeIn {
@@ -275,8 +294,7 @@ body {
 }
 
 @keyframes blinkCursor {
-  from,
-  to {
+  from, to {
     border-color: transparent;
   }
   50% {
@@ -284,6 +302,9 @@ body {
   }
 }
 @media (max-width: 1500px) {
+  
+  
+
   .profile-card {
     width: 60%;
     height: auto;
@@ -316,19 +337,19 @@ body {
   }
 
   .headline {
-    text-align: left;
-    font-size: 24px;
-    width: 100%;
-    white-space: normal;
-    border-right: none;
-    animation: none;
-    padding-left: 10px;
-  }
+text-align: left;
+font-size: 24px;
+width: 100%;
+white-space: normal;
+border-right: none;
+animation: none;
+padding-left: 10px;
+}
 
-  .headline .line {
-    display: block;
-    margin-bottom: 4px;
-  }
+.headline .line {
+display: block;
+margin-bottom: 4px;
+}
 
   .search-wrapper {
     width: 90%;
@@ -342,41 +363,45 @@ body {
     padding: 3px 45px 3px 12px;
     font-size: 13px;
     bottom: 0.1px;
-
+    
     position: absolute;
     right: 1%;
   }
 
+  
+
   .search-icon {
-    position: absolute;
-    top: 45%;
-    transform: translateY(-100%);
-    right: 45px;
-    height: 44px;
+      position: absolute;
+  top: 45%;
+  transform: translateY(-100%);
+  right: 45px;
+  height: 44px;
   }
 
   .send-icon {
     position: absolute;
-    top: 40%; /* was 50%, now moved up */
-    transform: translateY(-130%);
-    right: 12px;
-    height: 24px;
+  top: 40%; /* was 50%, now moved up */
+  transform: translateY(-130%);
+  right: 12px;
+  height: 24px;
+    
   }
 
   .advanced-btn {
-    position: absolute;
-    bottom: 60px; /* Adjust this value as needed */
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 18px;
-    font-size: 13px;
-    border: none;
-    border-radius: 12px;
-    background-color: orange;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-  }
+  position: absolute;
+  bottom: 60px;         /* Adjust this value as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 18px;
+  font-size: 13px;
+  border: none;
+  border-radius: 12px;
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 
   .car-placeholder {
     width: 160px;
@@ -399,8 +424,9 @@ body {
   }
 }
 
-@media (max-width: 380px) {
-  .search-wrapper {
+@media (max-width:380px) {
+
+     .search-wrapper {
     width: 90%;
     padding: 0 5px;
     position: relative;
@@ -412,24 +438,28 @@ body {
     padding: 3px 45px 3px 12px;
     font-size: 13px;
     bottom: 0.1px;
-
+    
     position: absolute;
     right: 1%;
   }
 
+  
+
   .search-icon {
-    position: absolute;
-    top: 45%;
-    transform: translateY(-100%);
-    right: 45px;
-    height: 44px;
+      position: absolute;
+  top: 45%;
+  transform: translateY(-100%);
+  right: 45px;
+  height: 44px;
   }
 
   .send-icon {
     position: absolute;
-    top: 40%; /* was 50%, now moved up */
-    transform: translateY(-130%);
-    right: 12px;
-    height: 24px;
+  top: 40%; /* was 50%, now moved up */
+  transform: translateY(-130%);
+  right: 12px;
+  height: 24px;
+    
   }
+    
 }
