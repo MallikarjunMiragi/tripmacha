@@ -138,16 +138,132 @@ header {
 }
 
 
-.reset-btn {
-  background: #e0dada;
-  border: none;
-  color: #8c8c8c;
-  padding: 10px 20px;
-  border-radius: 10px;
-  cursor: not-allowed;
-  margin-top: 10px;
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
+/* Profile Button (optional floating style) */
+.floating-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Overlay with blur */
+.popup {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Hidden by default */
+.hidden {
+  display: none;
+}
+.profile-image {
+  height: 70px;
+  width: 100px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  z-index: 1000; /* ✅ Bring above blur */
+  pointer-events: all; /* ✅ Ensure it's clickable */
+}
+
+
+
+.profile-image {
+  height: 70px;
+  width: 100px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  z-index: 1000; /* ✅ Bring above blur */
+  pointer-events: all; /* ✅ Ensure it's clickable */
+}
+
+
+
+.profile-card {
+  background: linear-gradient(to bottom right, #ffffff, #f8f8f8);
+  border-radius: 20px;
+  padding: 30px 25px;
+  text-align: center;
+  width: 35%;
+  height: 65%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  position: relative; 
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+}
+
+.profile-pic {
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.profile-card h2 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.profile-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+   
+}
+
+.reset-btn {
+  padding: 20px 74px;
+  background-color: #d76834;
+  color: #ffffff;
+  font-size: 28px;
+  border: none;
+  border-radius: 100px;
+  cursor: not-allowed;
+  
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.reset-btn:hover {
+  background-color: #51e7d3;
+}
 
 
 /* Animations */
@@ -184,4 +300,166 @@ header {
   50% {
     border-color: #1e1e1e;
   }
+}
+@media (max-width: 1500px) {
+  
+  
+
+  .profile-card {
+    width: 60%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .profile-card h2 {
+    font-size: 24px;
+  }
+
+  .reset-btn {
+    font-size: 20px;
+    padding: 12px 40px;
+  }
+}
+@media (max-width: 500px) {
+  .logo {
+    height: 70px;
+    width: 100px;
+  }
+
+  .profile-image {
+    height: 35px;
+    width: 45px;
+  }
+
+  .main-section {
+    transform: translateY(-60px);
+    padding: 0 10px;
+  }
+
+  .headline {
+text-align: left;
+font-size: 24px;
+width: 100%;
+white-space: normal;
+border-right: none;
+animation: none;
+padding-left: 10px;
+}
+
+.headline .line {
+display: block;
+margin-bottom: 4px;
+}
+
+  .search-wrapper {
+    width: 90%;
+    padding: 0 5px;
+    position: relative;
+    top: 23%;
+  }
+
+  .search-bar {
+    height: 45px;
+    padding: 3px 45px 3px 12px;
+    font-size: 13px;
+    bottom: 0.1px;
+    
+    position: absolute;
+    right: 1%;
+  }
+
+  
+
+  .search-icon {
+      position: absolute;
+  top: 45%;
+  transform: translateY(-100%);
+  right: 45px;
+  height: 44px;
+  }
+
+  .send-icon {
+    position: absolute;
+  top: 40%; /* was 50%, now moved up */
+  transform: translateY(-130%);
+  right: 12px;
+  height: 24px;
+    
+  }
+
+  .advanced-btn {
+  position: absolute;
+  bottom: 60px;         /* Adjust this value as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 18px;
+  font-size: 13px;
+  border: none;
+  border-radius: 12px;
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+  .car-placeholder {
+    width: 160px;
+    top: -80px;
+  }
+
+  .profile-card {
+    width: 90%;
+    height: auto;
+    padding: 20px 15px;
+  }
+
+  .profile-card h2 {
+    font-size: 20px;
+  }
+
+  .reset-btn {
+    font-size: 18px;
+    padding: 10px 30px;
+  }
+}
+
+@media (max-width:380px) {
+
+     .search-wrapper {
+    width: 90%;
+    padding: 0 5px;
+    position: relative;
+    top: 21%;
+  }
+
+  .search-bar {
+    height: 45px;
+    padding: 3px 45px 3px 12px;
+    font-size: 13px;
+    bottom: 0.1px;
+    
+    position: absolute;
+    right: 1%;
+  }
+
+  
+
+  .search-icon {
+      position: absolute;
+  top: 45%;
+  transform: translateY(-100%);
+  right: 45px;
+  height: 44px;
+  }
+
+  .send-icon {
+    position: absolute;
+  top: 40%; /* was 50%, now moved up */
+  transform: translateY(-130%);
+  right: 12px;
+  height: 24px;
+    
+  }
+    
 }
