@@ -15,27 +15,15 @@
 
     <div class="main-container">
       <div class="card">
+        <!-- Left Section (hidden on mobile) -->
         <div class="left-section">
           <p class="tagline">
             ayy Macha!<br />
-            Back aa?<br />
+            Back aa?
           </p>
           <img src="guy_on_scooter.png" alt="Guy on Scooter" class="scooter" />
         </div>
 
-      <div class="right-section">
-        <h1 class="title">Welcome Back</h1>
-        <form class="form" id="login-form">
-          <div class="name-row">
-          <input type="text" name="username" placeholder="Username" />
-          </div>
-          <div class="pass-row">
-          <input type="password" name="password" placeholder="Password" />
-          </div>
-          
-          <div class="forgot-password">
-            <a href="Resetpass.html">Forgot Password?</a>
-          </div>
 
             <button type="submit">LOGIN</button>
             <p class="login">
@@ -45,6 +33,7 @@
         </div>
       </div>
     </div>
+
     <script>
       const loginForm = document.getElementById("login-form");
       loginForm.addEventListener("submit", async (e) => {
@@ -68,7 +57,6 @@
           const result = await response.json();
           if (response.ok) {
             localStorage.setItem("token", result.access_token);
-
             sessionStorage.setItem("username", formData.get("username"));
             window.location.href = "dashboardtest.html";
           } else {

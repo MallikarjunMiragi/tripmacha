@@ -1,126 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Schedule Trip Plan - Trip Macha</title>
-  <link rel="stylesheet" href="schedule.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schedule Trip Plan - Trip Macha</title>
+    <link rel="stylesheet" href="schedule.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <img src="logo.png" alt="Trip Macha Logo" class="logo" />
+      <img
+        src="Profile.png"
+        alt="Profile Picture"
+        id="profileBtn"
+        class="logo-1"
+      />
+    </header>
 
-  <header>
-    <img src="logo.png" alt="Trip Macha Logo" class="logo">
-    <img src="Profile.png" alt="Profile Picture" id="profileBtn" class="logo-1" height="70" width="100" style="cursor: pointer;">
+    <main class="trip-container">
+      <div class="image-wrapper">
+        <img src="beach.png" alt="Faded background" class="base-img" />
+        <img src="beach-Photoroom.png" alt="Overlay" class="overlay-img" />
+      </div>
 
-  </header>
+      <div class="form-section">
+        <h1 class="form-heading">Schedule a Trip Plan</h1>
+        <form class="trip-form">
+          <div class="form-row">
+            <input type="text" placeholder="Location" />
+            <input type="text" placeholder="Within the Radius (KM)" />
+          </div>
+          <div class="form-row">
+            <input type="text" placeholder="Current Radius" />
+          </div>
+          <div class="form-row">
+            <input type="date" placeholder="From Date" />
+            <input type="date" placeholder="To Date" />
+          </div>
+          <div class="form-row">
+            <input type="text" placeholder="Duration" />
+          </div>
+          <button
+            type="button"
+            class="locate-btn"
+            onclick="window.location.href='chat.html'"
+          >
+            Locate Now
+          </button>
+        </form>
+      </div>
+    </main>
 
-  <main class="trip-container">
-
-      
-<div class="image-wrapper">
-  <img src="beach.png" alt="Faded background" class="base-img">
-  <img src="beach-Photoroom.png" alt="Overlay" class="overlay-img">
-</div>
-
-    <div class="form-section">
-      <h1 class="form-heading"> Schedule a Trip Plan</h1>
-
-      <form class="trip-form">
-        <div class="form-row">
-          <input type="text" placeholder="Location">
-          <input type="text" placeholder="Within the Radius(KM)">
+    <!-- Profile Popup -->
+    <div id="profileOverlay" class="popup hidden">
+      <div class="profile-card">
+        <img src="logout.png" id="logoutBtn" class="logout-icon" alt="Logout" />
+        <div class="profile-pic">
+          <img src="Profile.png" alt="Profile Picture" />
         </div>
-
-        <div class="form-row">
-          <input type="text" placeholder="Current Radius">
-        </div>
-
-        <div class="form-row">
-          <input type="date" placeholder="From Date">
-          <input type="date" placeholder="To Date">
-        </div>
-
-        <div class="form-row">
-          <input type="text" placeholder="Duration">
-        </div>
-
-       <button class="locate-btn" onclick="window.location.href='chat.html'">Locate Now</button>
-
-      </form>
+        <h2 id="profileName">Person1 Name</h2>
+        <p id="profileDetails">person@gmail.com</p>
+        <p id="emailVerified">Email Verified ✅</p>
+        <button id="verifyBtn" class="reset-btn" style="display: none">
+          Verify Email
+        </button>
+      </div>
     </div>
-  </main>
 
-<!-- Profile Popup -->
-<div id="profileOverlay" class="popup hidden">
-  <div class="profile-card">
-  <img src="logout.png" id="logoutBtn" class="logout-icon" alt="Logout" />
-  <div class="profile-pic">
-    <img src="Profile.png" alt="Profile Picture" />
-  </div>
-  <h2 id="profileName">Person1 Name</h2>
-  <p id="profileDetails">person@gmail.com</p>
-  <p id="emailVerified">Email Verified ✅</p>
-  <!-- Optional verify email button -->
-  <button id="verifyBtn" class="reset-btn" style="display:none;">Verify Email</button>
-</div>
-
-</div>
-
-<script>
-  // ✅ Token verification
-  const token = localStorage.getItem("token");
-
-  if (!token) {
-    alert("Token not found. Please log in again.");
-    window.location.href = "login.html";
-  } else {
-    // OPTIONAL: Verify token validity
-    fetch("https://new-tm.onrender.com/users/me", {
-      method: "GET",
-      headers: {
-        "Accept": "application/json",
-        "Authorization": "Bearer " + token
-      }
-    })
-    .then(async res => {
-      const result = await res.json();
-      if (!res.ok) {
-        alert("Session expired. Please log in again.");
-        localStorage.removeItem("token");
+    <script>
+      // Token verification
+      const token = localStorage.getItem("token");
+      if (!token) {
+        alert("Token not found. Please log in again.");
         window.location.href = "login.html";
       } else {
-        // ✅ You can also update the profile card with user info here if needed
-        document.querySelector(".profile-card h2").innerText = result.full_name || result.username;
-        document.querySelector(".profile-card p").innerText = `${result.email}`;
+        fetch("https://new-tm.onrender.com/users/me", {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            Authorization: "Bearer " + token,
+          },
+        })
+          .then(async (res) => {
+            const result = await res.json();
+            if (!res.ok) {
+              alert("Session expired. Please log in again.");
+              localStorage.removeItem("token");
+              window.location.href = "login.html";
+            } else {
+              document.querySelector(".profile-card h2").innerText =
+                result.full_name || result.username;
+              document.querySelector(
+                ".profile-card p"
+              ).innerText = `${result.email}`;
+            }
+          })
+          .catch((err) => {
+            console.error("Token verification failed:", err);
+            alert("Error verifying session.");
+          });
       }
-    })
-    .catch(err => {
-      console.error("Token verification failed:", err);
-      alert("Error verifying session.");
-    });
-  }
 
-  // ✅ Profile Popup Toggle
-  const profileBtn = document.getElementById('profileBtn');
-  const overlay = document.getElementById('profileOverlay');
+      // Profile Popup Toggle
+      const profileBtn = document.getElementById("profileBtn");
+      const overlay = document.getElementById("profileOverlay");
+      const logoutBtn = document.getElementById("logoutBtn");
 
-  profileBtn?.addEventListener('click', (e) => {
-    e.preventDefault();
-    overlay.classList.remove('hidden');
-  });
-
-  overlay?.addEventListener('click', (e) => {
-    if (e.target.id === 'profileOverlay') {
-      overlay.classList.add('hidden');
-    }
-  });
-  
-  logoutBtn?.addEventListener('click', () => {
-    localStorage.removeItem('token');
-    sessionStorage.clear();
-    window.location.replace('index.html'); // <-- ensures full page load
-  });
-</script>
-</body>
+      profileBtn?.addEventListener("click", (e) => {
+        e.preventDefault();
+        overlay.classList.remove("hidden");
+      });
+      overlay?.addEventListener("click", (e) => {
+        if (e.target.id === "profileOverlay") {
+          overlay.classList.add("hidden");
+        }
+      });
+      logoutBtn?.addEventListener("click", () => {
+        localStorage.removeItem("token");
+        sessionStorage.clear();
+        window.location.replace("index.html");
+      });
+    </script>
+  </body>
 </html>
