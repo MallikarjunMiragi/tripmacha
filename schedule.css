@@ -5,9 +5,9 @@
 }
 
 body {
-  font-family: 'Syne', sans-serif;
-  background-image: url('bg.png');
-    background-size: cover;
+  font-family: "Syne", sans-serif;
+  background-image: url("bg.png");
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
@@ -37,7 +37,7 @@ header {
   position: relative;
   width: 100%;
   max-width: 400px;
-/* Fixes white background issue */
+  /* Fixes white background issue */
 }
 
 .base-img,
@@ -69,7 +69,6 @@ header {
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
   transition: all 0.3s ease;
 }
-
 
 .profile-icon {
   width: 40px;
@@ -138,7 +137,7 @@ header {
   border-radius: 14px;
   font-size: 16px;
   background-color: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .locate-btn {
@@ -148,7 +147,7 @@ header {
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 14px;
-  box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -157,7 +156,6 @@ header {
   background-color: #86d2cd;
   color: white;
 }
-
 
 /* Floating Button */
 .floating-btn {
@@ -168,7 +166,7 @@ header {
   font-size: 16px;
   border: none;
   border-radius: 10px;
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
   cursor: pointer;
   z-index: 10;
@@ -211,7 +209,7 @@ header {
   width: 300px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
-  position: relative; 
+  position: relative;
 }
 
 .profile-card:hover {
@@ -274,4 +272,125 @@ header {
   width: 24px;
   height: 24px;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+    padding: 20px 10px;
+  }
+
+  header {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .trip-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin-top: 20px;
+  }
+
+  .character-section {
+    order: 2;
+    margin-top: 30px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .character-img {
+    max-width: 200px;
+  }
+
+  .form-section {
+    width: 100%;
+    padding: 0 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .form-heading {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .trip-form {
+    width: 100%;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-row input,
+  .trip-form input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .locate-btn {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .profile-image {
+    height: 50px;
+    width: 50px;
+  }
+
+  .reset-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .profile-card {
+    width: 90%;
+  }
+
+  @media (max-width: 768px) {
+    .logo {
+      display: none;
+    }
+
+    .base-img {
+      display: none;
+    }
+
+    .logo-1 {
+      width: 75px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      align-self: flex-end; /* moves to the right */
+      margin-bottom: 20px;
+      right: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .overlay-img {
+      width: 60%;
+      top: 458px;
+      left: -20px; /* or try 50% for more reduction */
+    }
+    .trip-container {
+      margin-top: 0;
+      padding-top: 10px;
+    }
+
+    .form-section {
+      padding-top: 10px;
+    }
+
+    .character-section {
+      margin-top: 10px;
+    }
+
+    .overlay-img {
+      display: none;
+    }
+  }
 }

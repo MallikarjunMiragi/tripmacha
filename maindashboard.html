@@ -2,30 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
   <title>Trip Macha - Plan</title>
   <link rel="stylesheet" href="mainstyle.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&display=swap" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Swanky+and+Moo+Moo&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <header>
-    <img src="Logo.png" alt="Trip Macha Logo" class="logo">
+    <img src="logo.png" alt="Trip Macha Logo" class="logo">
     <img src="Profile.png" alt="Profile" id="profileBtn" class="profile-image">
   </header>
 
-  <main class="main-section">
-    <h1 class="headline">Hi Macha, Ready for your Next Plan?</h1>
+  <main class="main-section" >
+    <h1 class="headline">
+  <span class="text-full">Hi Macha, Ready for your Next Plan?</span>
+  <span class="text-break">
+    <span class="line1">Hi Macha,</span><br>
+    <span class="line2">Ready for your</span><br>
+    <span class="line3">Next Plan?</span>
+  </span>
+</h1>
+
+
 
     <div class="search-wrapper">
       <input type="text" placeholder="Search with your voice..." class="search-bar" id="searchInput">
       <a href="chat.html">
-        <img src="search_icon.png" class="search-icon" alt="search" id="searchIcon"style="cursor: pointer; height: 80px; width: 80px !important;">
+        <img src="search_icon.png" class="search-icon" alt="search" id="searchIcon" style="cursor: pointer;">
       </a>
       <img src="send_icon.png" class="send-icon" alt="voice search" id="voiceBtn" style="cursor: pointer;">
-    </div>
+    
 
     <button class="advanced-btn" onclick="location.href='schedule.html'">Advanced Search</button>
+    </div>
   </main>
 
   <!-- ✅ Profile Popup -->
@@ -171,6 +183,7 @@
     sessionStorage.setItem("initialMessage", message);
     window.location.href = "chat.html";
   });
+  
 </script>
 
 
