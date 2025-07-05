@@ -416,8 +416,8 @@ body {
 }
 @media (max-width: 500px) {
   .logo {
-    height: 49px;
-    width: 70px;
+    height: 70px;
+    width: 100px;
   }
 
   .profile-image {
@@ -449,7 +449,7 @@ margin-bottom: 4px;
     width: 90%;
     padding: 0 5px;
     position: relative;
-    top: 16%;
+    top: 23%;
   }
 
   .search-bar {
