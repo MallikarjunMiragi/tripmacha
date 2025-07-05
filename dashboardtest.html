@@ -29,7 +29,7 @@
     }
 
     h1 {
-      font-size: 56px;
+      font-size: clamp(24px, 6vw, 56px);
       color: #fff;
       
       padding: 20px 40px;
@@ -68,6 +68,14 @@
   }
   100% {
     stroke-dashoffset: 0;
+  }
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: clamp(20px, 7vw, 32px);
+  }
+  .hello__svg {
+    stroke-width: 2px;
   }
 }
 

@@ -6,34 +6,44 @@
 }
 
 body {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  background-color: #ffffff;
+  font-family: "Comic Sans MS",  sans-serif;
+  background: linear-gradient(to bottom, #b4ebe6, #ffffff);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow-x: hidden;
 }
+
+
+
 
 /* Main Card Container */
 .main-container {
   width: 100%;
   max-width: 1000px;
-  height: 100%;
-  max-height: 1000px;
-  padding: 40px;
-  padding-top: 150px;
+  padding-top:40px;
+  padding-left:20px;
+  padding-right:20px;
+  display: flex;
+  justify-content: center; /* ✅ center horizontally */
+  align-items: center;
 }
+
 
 .card {
   display: flex;
+  flex-direction: row;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   background-color: white;
-  height: 700px;
-  width: 1000px;
+  width: 100%;              /* ✅ Use full available width */
+  max-width: 1000px;        /* ✅ But not more than desktop max */
+  min-height: 500px;        /* ✅ Height adapts to content */
+  margin: auto;
+  flex-wrap: wrap;          /* ✅ Allows stacking on smaller screens */
 }
+
 
 /* Left Side */
 .left-section {
@@ -41,12 +51,15 @@ body {
   background: linear-gradient(to bottom, #b4ebe6, #ffffff);
   padding: 30px;
   position: relative;
+
 }
 
 .logo {
   position: absolute;
   top: 20px;
   left: 20px;
+  width: 130px;
+  height: 130px;
   width: 225px;
 }
 
@@ -61,15 +74,17 @@ body {
 
 .scooter {
   position: absolute;
-  padding-left: 0px;
   bottom: 10px;
-  left: -200px;
+  left: -10%;
+  width: 30vw;          /* ✅ Scales with screen width */
+  max-width: 400px;     /* ✅ Prevents it from getting too big */
+  min-width: 350px;     /* ✅ Prevents it from getting too small */
+  height: auto;         /* ✅ Maintain aspect ratio */
   animation: scooterSlide 2s forwards ease;
   animation-delay: 0s;
-  width: 500px;
-  height: 500px;
   z-index: 3;
 }
+
 
 @keyframes scooterSlide {
   to {
@@ -83,6 +98,7 @@ body {
   position: relative;
   padding: 60px;
   overflow: hidden;
+  position: relative;
 }
 
 .right-section::before {
@@ -93,11 +109,13 @@ body {
   background-size: cover;
   opacity: 0.3;
   z-index: 0;
+  position: relative;
 }
 
 .right-section * {
   position: relative;
   z-index: 1;
+  position: relative;
 }
 
 .title {
@@ -175,17 +193,11 @@ button {
 
 /* ========== MOBILE RESPONSIVE DESIGN ========== */
 @media (max-width: 768px) {
-  body {
+  .main-container,
+  .main-hero {
     flex-direction: column;
     align-items: center;
-    padding: 10px;
-    height: auto;
-  }
-
-  .main-container {
-    padding: 20px 10px;
-    padding-top: 80px;
-    max-width: 400px;
+    padding: 20px;
     height: auto;
   }
 
@@ -193,14 +205,8 @@ button {
     flex-direction: column;
     width: 100%;
     height: auto;
-    border-radius: 20px;
-    background: linear-gradient(
-      to bottom,
-      rgba(180, 235, 230, 0.3),
-      rgba(255, 255, 255, 0.3)
-    );
-    backdrop-filter: blur(10px);
-    padding: 20px;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .left-section {
@@ -209,22 +215,47 @@ button {
 
   .right-section {
     width: 100%;
-    padding: 20px 10px;
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+  }
+
+  .tagline {
+    font-size: 20px;
     text-align: center;
   }
 
-  .right-section::before {
-    opacity: 0.2;
-    border-radius: 20px;
+  .gif-character {
+    position: static;
+    width: 70%;
+    height: auto;
+    max-height: none;
+    margin: 20px auto;
   }
 
-  .title {
+  .hero-box {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 20px;
+    padding: 30px 20px;
+    backdrop-filter: blur(10px);
+  }
+
+  .hero-text {
     font-size: 24px;
-    margin-bottom: 20px;
+    line-height: 1.4;
   }
 
-  .form {
-    gap: 15px;
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
   }
 
   input,
@@ -232,33 +263,20 @@ button {
     width: 100%;
   }
 
+  .form {
+    gap: 15px;
+  }
+
+  .login,
+  .forgot-password {
+    text-align: center;
+  }
+
   .logo {
-    position: static;
-    width: 180px;
-    margin-bottom: 10px;
+    width: 120px;
+    top: 10px;
+    left: 10px;
   }
+}
 
-  /* Scooter appears below the card in mobile with animation */
-  .scooter {
-    display: block;
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 200px;
-    height: auto;
-    margin: 20px auto 0 auto;
-    animation: scooterSlideUp 1.5s ease forwards;
-    opacity: 0;
-  }
-
-  @keyframes scooterSlideUp {
-    0% {
-      transform: translateY(30px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
 }
