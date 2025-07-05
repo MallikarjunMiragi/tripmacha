@@ -10,7 +10,7 @@ html {
 
 body {
   font-family: 'Syne', sans-serif;
-  background-image: url('bg.png'); /* replace with your image filename */
+  background-image: url(bg.png); /* replace with your image filename */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
