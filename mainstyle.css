@@ -416,8 +416,8 @@ body {
 }
 @media (max-width: 500px) {
   .logo {
-    height: 70px;
-    width: 100px;
+    height: 49px;
+    width: 70px;
   }
 
   .profile-image {
