@@ -297,7 +297,7 @@ iframe {
 }
 
 .bubble {
-  background-color: rgba(225, 225, 225, 0.4); /* 40% opacity only for background */
+  background-color: rgba(255, 255, 255, 0.6); /* 40% opacity only for background */
   border-radius: 15px;
   padding: 15px;
   width: 70%;
@@ -367,7 +367,51 @@ iframe {
 }
 
 
+.travel-plan-list {
+  text-align: left;
+  font-size: 14px;
+  padding-left: 1rem;
+  list-style-type: disc;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
 
+.travel-plan-list li {
+  margin-bottom: 12px;
+  padding: 8px 10px;
+  border-left: 3px solid #d76834; /* Optional highlight bar */
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.travel-plan-list strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.travel-plan-list em {
+  color: #5c6bc0;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.travel-plan-list small {
+  display: block;
+  color: #444;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.travel-plan-list li strong,
+.travel-plan-list li em {
+  font-size: 18px; /* Increase as needed */
+}
+
+.travel-plan-list {
+  max-height: 500px;
+  overflow-y: auto;
+}
 @media (max-width: 768px) {
   .input-box {
     width: 100%;
@@ -446,3 +490,176 @@ iframe {
   width: 100%;
   height: 6px;
 }
+
+
+@media (max-width: 1400px) {
+
+  header {
+    display: none !important;
+  }
+
+  .map-btn {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 25px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .map-btn:hover {
+    background: #000;
+    color: #fff;
+  }
+
+  .chat-panel {
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 90%;
+    max-width: 600px;
+    margin: 100px auto 80px;
+    border-radius: 20px;
+    padding: 1rem;
+    padding-bottom: 5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(5px);
+    padding-bottom: 6rem;
+  }
+
+  .chat-bubble {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .chat-bubble.left {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .chat-bubble.right {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+
+  .bubble {
+    background-color: white;
+    color: #000;
+    padding: 12px 16px;
+    border-radius: 18px;
+    max-width: 70%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+ .map-panel {
+  width: 90%;
+  max-width: 600px;
+  margin: 100px auto 80px;
+  border-radius: 20px;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(5px);
+  display: none !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.map-panel.show {
+  display: flex !important;
+}
+
+  .input-box {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    padding: 12px 16px;
+    font-size: 15px;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background-color: white;
+    z-index: 999;
+  }
+    .map-panel {
+    display: none !important;
+  }
+
+   .chat-panel.hide {
+    display: none !important;
+  }
+
+  .map-panel {
+    display: none !important;
+  }
+
+  .map-panel.show {
+    display: flex !important;
+  }
+    .map-panel,
+  .chat-panel {
+    display: none !important;
+  }
+
+  .chat-panel.show,
+  .map-panel.show {
+    display: flex !important;
+  }
+
+  .toggle-btn {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    padding: 10px 24px;
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+
+  .toggle-btn:hover {
+    background-color: #d76834;
+    color: white;
+  }
+
+.input-box {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  padding: 12px 16px;
+  font-size: 15px;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  z-index: 999;
+}
+
+
+}
+
