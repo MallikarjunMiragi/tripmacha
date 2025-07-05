@@ -167,19 +167,21 @@ canvas {
 
   .hero-box {
     width: 85vw;
-    aspect-ratio: 1 / 1; /* square shape */
-    padding: 5vh 4vw;
+    /* aspect-ratio: 1 / 1; removed */
+    padding: 3vh 4vw; /* reduced */
     border-radius: 30px;
   }
 
   .greeting {
     font-size: clamp(18px, 7vw, 28px);
     margin-bottom: 2vh;
+    text-align: center;
   }
 
   .hero-text {
     font-size: clamp(16px, 6vw, 26px);
     margin-bottom: 3vh;
+    text-align: center;
   }
 
   .hero-buttons {
@@ -197,7 +199,7 @@ canvas {
 
   canvas {
     width: 85vw;
-    max-height: 45vh;
+    max-height: 35vh; /* reduced */
     aspect-ratio: auto;
     margin-left: 0;
   }
