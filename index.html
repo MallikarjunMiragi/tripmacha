@@ -6,66 +6,59 @@
     <link rel="stylesheet" href="style2.css" />
     <script src="https://cdn.babylonjs.com/babylon.js"></script>
     <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
-    <style>
-      canvas {
-        position: absolute;
-        bottom: 0;
-        left: 50px;
-        height: 90vh;
-        z-index: 1;
-        background: transparent;
-        pointer-events: all;
-      }
-    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="main-hero">
       <!-- Logo -->
       <img src="logo.png" alt="Trip Macha Logo" class="logo" />
 
-      <!-- Right Text Box -->
-      <div class="hero-box">
-        <h1 class="greeting">Hello</h1>
-        <p class="hero-text">
-          Hello!<br />
-          I'm your smart <br />
-          travel companion<br />
-          powered by AI.<br />
-        </p>
-        <div class="hero-buttons">
-          <a href="Signup.html" class="btn orange">GET STARTED</a>
-          <a href="Signin.html" class="btn black">LOG IN</a>
+      <!-- Flex container for 3D character and hero box -->
+      <div class="hero-flex">
+        <!-- Canvas for 3D character -->
+        <canvas id="renderCanvas"></canvas>
+
+        <!-- Hero Box -->
+        <div class="hero-box">
+          <h1 class="greeting">Hello</h1>
+          <p class="hero-text">
+            I'm your smart <br />
+            travel companion<br />
+            powered by AI.<br />
+          </p>
+          <div class="hero-buttons">
+            <a href="Signup.html" class="btn orange">GET STARTED</a>
+            <a href="Signin.html" class="btn black">LOG IN</a>
+          </div>
         </div>
       </div>
     </div>
 
     <script>
-      // Get canvas
-      const canvas = document.createElement("canvas");
-      document.body.appendChild(canvas);
+      const canvas = document.getElementById("renderCanvas");
+      const engine = new BABYLON.Engine(canvas, true);
 
-      // Create engine
-      const engine = new BABYLON.Engine(canvas, true, {
-        preserveDrawingBuffer: true,
-        stencil: true,
-        disableWebGL2Support: false,
-      });
-
-      // Create scene
       const createScene = async () => {
         const scene = new BABYLON.Scene(engine);
-        scene.clearColor = new BABYLON.Color4(0, 0, 0, 0); // Transparent BG
+        scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
 
         const camera = new BABYLON.ArcRotateCamera(
           "camera",
           Math.PI / 2,
           Math.PI / 2,
-          3,
-          new BABYLON.Vector3(0, 1, 0),
+          6,
+          new BABYLON.Vector3(0, 1.8, 0),
           scene
         );
         camera.attachControl(canvas, true);
-        camera.lowerBetaLimit = Math.PI / 2; // Prevent up/down rotation
+        camera.lowerBetaLimit = Math.PI / 2;
         camera.upperBetaLimit = Math.PI / 2;
         camera.inputs.removeByType("ArcRotateCameraMouseWheelInput");
 
@@ -75,13 +68,16 @@
           scene
         );
 
-        // Load character
         await BABYLON.SceneLoader.ImportMeshAsync(
           "",
           "model/",
           "walk.glb",
           scene
-        );
+        ).then((result) => {
+          result.meshes.forEach((mesh) => {
+            mesh.scaling = new BABYLON.Vector3(1.5, 1.5, 1.5); // increase uniformly
+          });
+        });
 
         return scene;
       };
@@ -95,6 +91,41 @@
           engine.resize();
         });
       });
+    </script>
+    <script>
+      const greetings = [
+        "Hello", // English
+        "ನಮಸ್ಕಾರ", // Kannada
+        "नमस्कार", // Hindi
+        "Hola", // Spanish
+        "Bonjour", // French
+        "Ciao", // Italian
+        "Olá", // Portuguese
+        "Hallo", // German
+      ];
+
+      let greetIndex = 0;
+      const greetingElement = document.querySelector(".greeting");
+
+      const updateGreeting = () => {
+        greetingElement.classList.add("fade-out");
+
+        setTimeout(() => {
+          greetingElement.textContent = greetings[greetIndex];
+          greetingElement.classList.remove("fade-out");
+          greetingElement.classList.add("fade-in");
+
+          greetIndex = (greetIndex + 1) % greetings.length;
+        }, 500);
+
+        setTimeout(() => {
+          greetingElement.classList.remove("fade-in");
+        }, 1000);
+      };
+
+      // Start the cycle
+      updateGreeting();
+      setInterval(updateGreeting, 2000); // change every 2 seconds
     </script>
   </body>
 </html>
