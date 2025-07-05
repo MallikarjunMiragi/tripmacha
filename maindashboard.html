@@ -16,7 +16,8 @@
   </header>
 
   <main class="main-section" >
-    <h1 class="headline" style="font-family: 'Swanky and Moo Moo', cursive; color: #333;"> <span class="line">Hi Macha,</span><br /> <span class="line">Ready for your</span><br /> <span class="line">Next plan?</span> </h1>
+    <h1 class="headline" id="headline">Hi Macha, Ready for your Next Plan?</h1>
+
 
     <div class="search-wrapper">
       <input type="text" placeholder="Search with your voice..." class="search-bar" id="searchInput">
@@ -172,6 +173,19 @@
     sessionStorage.setItem("initialMessage", message);
     window.location.href = "chat.html";
   });
+  function updateHeadline() {
+    const headline = document.getElementById("headline");
+    if (window.innerWidth <= 500) {
+      headline.innerHTML = `Hi Macha,<br>Ready for your<br>Next plan?`;
+      headline.style.textAlign = "left";
+    } else {
+      headline.textContent = "Hi Macha, Ready for your Next Plan?";
+      headline.style.textAlign = "center"; // Adjust if you use a different default
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", updateHeadline);
+  window.addEventListener("resize", updateHeadline);
 </script>
 
 
