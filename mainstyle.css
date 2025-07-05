@@ -373,20 +373,7 @@ body {
     padding: 0 10px;
   }
 
-  .headline {
-text-align: left;
-font-size: 24px;
-width: 100%;
-white-space: normal;
-border-right: none;
-animation: none;
-padding-left: 10px;
-}
-
-.headline .line {
-display: block;
-margin-bottom: 4px;
-}
+  
 
   .search-wrapper {
     width: 90%;
